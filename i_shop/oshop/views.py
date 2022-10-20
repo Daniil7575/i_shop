@@ -12,19 +12,19 @@ def product_list(request, cat_slug=None):
         cat = Category.objects.get(slug=cat_slug)
         products = products.filter(category=cat)
 
-        context = {
-            'cat': cat,
-            'cats':cats,
-            'products': products
-        }
+    context = {
+        'category': cat,
+        'categories':cats,
+        'products': products
+    }
 
-    return render(request, 'oshop/product/list.html', context)
+    return render(request, 'oshop/list.html', context)
 
 
 def product_detail(requset, id, slug):
     product = get_object_or_404(Product, id=id, slug=slug, available=True)
     return render(
         requset,
-        'oshop/product/detail.html',
+        'oshop/detail.html',
         {'product': product}
     )

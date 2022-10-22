@@ -23,8 +23,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(('oshop.urls', 'oshop'), namespace='oshop')),
     path('cart/', include(('cart.urls', 'cart'), namespace='cart')),
+    path('orders/', include(('orders.urls', 'orders'), namespace='orders')),
 ]
 
 if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-
+    urlpatterns += static(settings.MEDIA_URL,
+                          document_root=settings.MEDIA_ROOT)
